@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Sitemap Dinâmico</title>
+</head>
+<body>
+    <h1>Sitemap Dinâmico</h1>
+    <ul id="sitemap"></ul>
+
+    <script>
+        const bairros = ["Abranches","Água Verde","Ahú","Alto Boqueirão","Alto da Glória","Alto da Rua XV","Atuba","Augusta","Bacacheri","Bairro Alto","Barreirinha","Batel","Bigorrilho","Boa Vista","Boqueirão","Bom Retiro","Brooklin","Butiatuvinha","Cabral","Cajuru","Campina do Siqueira","Campo Comprido","Campo de Santana","Capão Raso","Cascatinha","Caximba","Centro","Centro Cívico","Chácara","Cidade Industrial","Colombo","Cristo Rei","Fanny","Fazendinha","Ganchinho","Guabirotuba","Guaíra","Hauer","Hugo Lange","Jardim Botânico","Jardim das Américas","Jardim Social","Juvevê","Lamenha Pequena","Lindoia","Mercês","Mossunguê","Novo Mundo","Orleans","Parolin","Pilarzinho","Portão","Prado Velho","Rebouças","Riviera","Santa Cândida","Santa Felicidade","Santa Quitéria","Santo Inácio","São Braz","São Francisco","São João","São Lourenço","São Miguel","Seminário","Sitio Cercado","Tarumã","Tatuquara","Tingui","Uberaba","Umbará","Vila Izabel","Vista Alegre","Xaxim","Jardim Ipê","Jardim Weissópolis","Pinheirinho","Capão da Imbuia","Capanema","CIC","Ganchinho","Palmital","Rivadávia","Santa Amélia","Santa Mônica","Sítio Cercado","Vila Macedo","Vila Marisa","Vila Suzana"        ];
+        
+        const servicos = ["desentupidora","desentupimento de pia","desentupimento de vaso","desentupimento de ralo","desentupimento de esgoto","limpeza de fossa","hidrojateamento"        ];
+
+        const sitemapContainer = document.getElementById('sitemap');        bairros.forEach(bairro => {
+            servicos.forEach(servico => {
+                const url =`https://desentupidoraemcuritibanotopo.pages.dev/${slugify(servico)}-${slugify(bairro)}-curitiba`;                const listItem = document.createElement('li');                listItem.innerHTML =`<a href="${url}">${servico} em${bairro}</a>`;                sitemapContainer.appendChild(listItem);            });        });        function slugify(text) {
+            return text.toLowerCase()                .normalize('NFD')                .replace(/[\u0300-\u036f]/g, '')                .replace(/[^a-z0-9]+/g, '-')                .replace(/^-+|-+$/g, '');} </script>
+</body>
+</html>
